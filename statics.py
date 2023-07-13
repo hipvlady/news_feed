@@ -1,5 +1,10 @@
+from main import topic
+
 secret_name = "prod/news_feed/APIKEY"
 region_name = "us-east-1"
 
-email = "vlad@fwdinc.net"
-subject = "News Update"
+url = "https://newsapi.org/v2/everything"
+topic = "splunk"
+
+subject = "Splunk News Update"
+
