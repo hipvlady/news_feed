@@ -1,5 +1,6 @@
 import requests
 import aws
+import statics
 
 # Get the API key
 api_key = aws.get_secret()

@@ -2,10 +2,12 @@ import json
 import boto3
 from botocore.exceptions import ClientError
 
+import statics
+
 
 def get_secret():
-    secret_name = "prod/news_feed/APIKEY"
-    region_name = "us-east-1"
+    secret_name = statics.secret_name
+    region_name = statics.region_name
 
     # Create a Secrets Manager client
     session = boto3.session.Session()
