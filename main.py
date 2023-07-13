@@ -1,9 +1,10 @@
 import requests
 import aws
-import statics
+import send_mail
 
 # Get the API key
-api_key = aws.get_secret()
+secrets = aws.get_secret()
+api_key = secrets['news_api_key']
 
 url = f"https://newsapi.org/v2/everything" \
       f"?q=splunk" \
@@ -15,6 +16,13 @@ url = f"https://newsapi.org/v2/everything" \
 request = requests.get(url)
 content = request.json()
 
+email_content = "<html><body>"
+
 for article in content['articles']:
-    print(article['title'])
-    print(article['url'])
+    email_content += "<p><b>" + article['title'] + "</b><br>" + article['url'] + "</p><br>"
+
+email_content += "</body></html>"
+
+# send the message via the server set up earlier.
+send_mail.s.send_message(send_mail.msg)
+send_mail.s.quit()

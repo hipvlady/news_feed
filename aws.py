@@ -31,7 +31,4 @@ def get_secret():
     # Parse the JSON string:
     secret_dict = json.loads(secret)
 
-    # Extract the 'news_api_key' value:
-    news_api_key = secret_dict['news_api_key']
-
-    return news_api_key
+    return secret_dict
