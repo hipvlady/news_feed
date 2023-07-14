@@ -45,6 +45,7 @@ def send_msg(email_content):
     else:
         print("Email sent successfully")
 
+    # Close the server connection when done
+    server.quit()
 
-# Close the server connection when done
-server.quit()
+
